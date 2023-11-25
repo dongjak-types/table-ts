@@ -6,11 +6,8 @@ settings:
 
 dependencies:
   '@dongjak-public-types/commons':
-    specifier: ^1.0.0
-    version: 1.0.0
-  '@dongjak-public-types/data':
-    specifier: ^1.7.0
-    version: 1.7.0
+    specifier: ^2.0.0
+    version: 2.2.0
 
 devDependencies:
   '@semantic-release/changelog':
@@ -62,12 +59,8 @@ packages:
     dev: true
     optional: true
 
-  /@dongjak-public-types/commons@1.0.0:
-    resolution: {integrity: sha512-huAAx2dyxuhDH889w9v233Xm1xbAbaDtG/tvsNyWZTfcYCB9/xuuXZKZl2wcYJBe6gwvrAsLWl/n5cGOl8WO3A==}
-    dev: false
-
-  /@dongjak-public-types/data@1.7.0:
-    resolution: {integrity: sha512-6eWymo5PJVKJ0gmOzrBgmTQk83BeLjBzlvz0LwJ+oBw+g+U/QbbJzT3wGJNzVp9qycNKT95lB1Y7H10zRrzZzQ==}
+  /@dongjak-public-types/commons@2.2.0:
+    resolution: {integrity: sha512-q673NY045Vjc89rzfe3Ss9f3BmefdoB8kT4ArfhdIPtf14B+4EG3mKebEBszNt2rtblIz/nnp1grjw4UXxc34A==}
     dev: false
 
   /@esbuild/android-arm64@0.18.20:

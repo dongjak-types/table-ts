@@ -1,4 +1,4 @@
-import {IPage, IQueryPayload} from "@dongjak-public-types/data";
+import {IPage, IQueryPayload} from "@dongjak-public-types/commons";
 import {JsonResponse} from "@dongjak-public-types/commons";
 
 
