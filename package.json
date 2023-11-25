@@ -1,6 +1,6 @@
 {
     "name": "@dongjak-public-types/table",
-    "version": "3.0.0",
+    "version": "1.2.0",
     "description": "ts库项目模板",
     "publishConfig": {
         "access": "public"
