@@ -32,16 +32,5 @@
   "dependencies": {
     "@dongjak-public-types/commons": "^1.0.0",
     "@dongjak-public-types/data": "^1.7.0"
-  },
-  "files": [
-    "dist"
-  ],
-  "typings": "./dist/table-ts.d.ts",
-  "module": "./dist/table-ts.es.js",
-  "exports": {
-    ".": {
-      "types": "./dist/table-ts.d.ts",
-      "import": "./dist/table-ts.es.js"
-    }
   }
 }
