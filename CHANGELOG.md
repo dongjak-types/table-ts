@@ -1,3 +1,17 @@
+# [3.0.0](https://github.com/dongjak-types/table-ts/compare/v2.0.0...v3.0.0) (2023-11-25)
+
+
+### Features
+
+* 11 ([d4bf318](https://github.com/dongjak-types/table-ts/commit/d4bf318a568517bb7b579596d507ba1f36fe45d1))
+* 11 ([71b9915](https://github.com/dongjak-types/table-ts/commit/71b9915882e5b9e839f3da1def0ed55540890414))
+
+
+### BREAKING CHANGES
+
+* 1
+* 1
+
 # [2.0.0](https://github.com/dongjak-types/table-ts/compare/v1.2.0...v2.0.0) (2023-11-25)
 
 
