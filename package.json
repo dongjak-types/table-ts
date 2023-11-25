@@ -1,7 +1,7 @@
 {
     "name": "@dongjak-public-types/table",
     "version": "1.2.0",
-    "description": "ts库项目模板",
+    "description": "数据表格公共类型定义",
     "publishConfig": {
         "access": "public"
     },
