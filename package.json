@@ -1,13 +1,13 @@
 {
-    "name": "{{repo_name}}",
+    "name": "table-ts",
     "version": "1.0.0",
     "description": "ts库项目模板",
     "publishConfig": {
         "access": "public"
     },
-    "repository": "{{repo_url}}",
+    "repository": "https://github.com/dongjak-types/table-ts",
     "scripts": {
-        "build": "rimraf dist && dts-bundle-generator -o dist/{{repo_name}}.d.ts index.ts  && vite build",
+        "build": "rimraf dist && dts-bundle-generator -o dist/table-ts.d.ts index.ts  && vite build",
         "semantic-release": "semantic-release"
     },
     "keywords": [],
@@ -15,15 +15,15 @@
     "files": [
         "dist"
     ],
-    "typings": "./dist/{{repo_name}}.d.ts",
-    "module": "./dist/{{repo_name}}.es.js",
+    "typings": "./dist/table-ts.d.ts",
+    "module": "./dist/table-ts.es.js",
     "exports": {
         ".": {
-            "types": "./dist/{{repo_name}}.d.ts",
-            "import": "./dist/{{repo_name}}.es.js"
+            "types": "./dist/table-ts.d.ts",
+            "import": "./dist/table-ts.es.js"
         }
     },
-    "author": "{{author}}",
+    "author": "dongjak-types",
     "license": "MIT",
     "devDependencies": {
         "@semantic-release/changelog": "^6.0.3",
