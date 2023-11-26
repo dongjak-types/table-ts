@@ -25,7 +25,14 @@ export class Columns {
         trueColor?: string,
         falseColor?: string,
         editable?: boolean
-    } = {}) {
+    } = {
+        trueText:"是",
+        trueColor:"green",
+        falseText:"否",
+        falseColor:"red",
+        editable:false
+    }) {
+
         return {
             label: config.label, field: config.field, renderer: Renderers.tag({
                 labelField: "name",
@@ -38,7 +45,7 @@ export class Columns {
                     }
                 },
             }),
-            editor: Editors.select({
+            editor: config.editable ? Editors.select({
                 returnValueType: SelectorReturnValueType.VALUE,
                 convertValueToOption: (value: any) => {
                     return {
@@ -56,7 +63,7 @@ export class Columns {
                         name: config.falseText ?? "否"
                     }
                 ]
-            })
+            }) : undefined
         } as IColumn
     }
 }

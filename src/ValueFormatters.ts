@@ -14,4 +14,15 @@ export class ValueFormatters {
     static nameField = (data: any) => {
         return data?.name
     }
+
+
+    /**
+     * 使用指定属性创建一个值格式化器
+     * @param field 属性名
+     */
+    static filedOf = ( field:string) => {
+        return (data?: any) => {
+            return data?.[field]
+        }
+    }
 }
