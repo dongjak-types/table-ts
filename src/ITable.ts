@@ -17,7 +17,7 @@ export interface ITable<T> {
     /**
      * 列
      */
-    columns: IColumn[] | ColumnType[],
+    columns: (IColumn | ColumnType)[],
 
     /**
      * 数据源
