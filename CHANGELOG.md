@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/dongjak-types/table-ts/compare/v3.2.0...v3.3.0) (2023-11-27)
+
+
+### Features
+
+* 新增正则工具类 ([3ce7c3c](https://github.com/dongjak-types/table-ts/commit/3ce7c3c3fe5f5501826aa9a119e5d4e9cb275399))
+
 # [3.2.0](https://github.com/dongjak-types/table-ts/compare/v3.1.0...v3.2.0) (2023-11-25)
 
 
