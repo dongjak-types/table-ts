@@ -5,6 +5,8 @@ import {IPagination} from "./IPagination";
 import {ILocaleText} from "./ILocaleText";
 import {RowSelectionMode} from "./row/RowSelectionMode";
 import {IRowAction, RowActionType} from "./rowaction/IRowAction";
+import {IToolbar} from "./toolbar/IToolbar";
+import {IToolbarItem, ToolbarItemType} from "./toolbar/IToolbarItem";
 
 /**
  * 这个接口用于定义一个表格
@@ -54,7 +56,7 @@ export interface ITable<T> {
      */
     pk?: string
 
-
+    toolbar?: IToolbar | (IToolbarItem | ToolbarItemType)[]
     /**
      *  获取选中的行数据
      */
