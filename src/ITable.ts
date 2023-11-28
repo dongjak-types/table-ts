@@ -61,4 +61,8 @@ export interface ITable<T> {
      *  获取选中的行数据
      */
     getSelectedRowData?: () => T[]
+
+
+
+    localStorageKey?:string
 }
