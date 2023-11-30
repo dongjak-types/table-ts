@@ -29,4 +29,7 @@ export * from './src/IStyled';
 export * from './src/ValueFormatters';
 export * from './src/toolbar/IToolbar';
 export * from './src/toolbar/IToolbarItem';
-
+export * from './src/filter/ITextFilter';
+export * from './src/filter/IColumnFilter';
+export * from './src/filter/Filters';
+export * from './src/filter/ISelectFilter';

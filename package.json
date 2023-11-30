@@ -30,6 +30,7 @@
     "vite": "^4.5.0"
   },
   "dependencies": {
-    "@dongjak-public-types/commons": "^2.0.0"
+    "@dongjak-public-types/commons": "^2.0.0",
+    "@dongjak-public-types/data": "^1.7.0"
   }
 }

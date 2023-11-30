@@ -2,6 +2,7 @@ import {ITooltip, TooltipType} from "../tooltip/ITooltip";
 import {ITable} from "../ITable";
 import {ColumnRendererType, IColumnRenderer} from "../renderer/IColumnRenderer";
 import {IColumnEditor} from "../editor/IColumnEditor";
+import {ColumnFilterType, IColumnFilter} from "../filter/IColumnFilter";
 
 
 /**
@@ -44,6 +45,12 @@ export interface IColumn {
      * 列的编辑器
      */
     editor?: IColumnEditor | ((table: ITable<any>) => IColumnEditor);
+
+
+    /**
+     * 列的过滤器
+     */
+    filter?: IColumnFilter| ColumnFilterType
     /**
      * 列的值获取器,默认情况下直接从行数据中获取
      * @param row
