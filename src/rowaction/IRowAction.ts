@@ -1,4 +1,5 @@
 import {ITable} from "../ITable";
+import {VNode} from "vue";
 
 /**
  * 行动作公共接口
@@ -21,15 +22,16 @@ export interface IRowAction<T> {
      * 点击事件
      * @param row
      */
-    onClick: (rows: T | T[]) => void
+    onClick?: (rows: T | T[]) => void
 
 
+    component?: (...args: any[]) => VNode
     /**
      * 是否显示
      * @param row
      * @param table
      */
-    display: (rows: T | T[], table: ITable<T>) => boolean
+    display?: (rows: T | T[], table: ITable<T>) => boolean
 }
 
 /**
@@ -38,4 +40,4 @@ export interface IRowAction<T> {
  * @since 1.0
  * @date 2023/10/7
  */
-export type RowActionType = "add" | "edit" | "delete" | "print" | "export" | "refresh"
+export type RowActionType = "edit" | "delete" | "print"
