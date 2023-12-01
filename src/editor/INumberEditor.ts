@@ -22,4 +22,9 @@ export interface INumberEditor extends IColumnEditor {
      * 最大值
      */
     max?: number
+
+    /**
+     * 验证失败时的消息后缀
+     */
+    msgSuffix?: string
 }

@@ -33,3 +33,4 @@ export * from './src/filter/ITextFilter';
 export * from './src/filter/IColumnFilter';
 export * from './src/filter/Filters';
 export * from './src/filter/ISelectFilter';
+export * from './src/row/model/IAdministrativeArea'

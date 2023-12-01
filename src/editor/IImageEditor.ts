@@ -24,6 +24,9 @@ export interface IImageEditor extends IColumnEditor {
      */
     multiple?: boolean,
 
+    min?: number,
+    max?: number,
+
     /**
      * 附加的数据
      */

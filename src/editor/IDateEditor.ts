@@ -27,6 +27,18 @@ export interface IDateEditor extends IColumnEditor {
      * 日期编辑器的类型,默认为`DATE`
      */
     dateType?: DateType
+
+    presets?: IDatePreset[]
+}
+
+export interface IDatePreset {
+label:string
+value:any
+}
+
+export class DatePresets{
+
+    static past = {"value":0,"localizationStr":"1970-01-01"}
 }
 
 /**

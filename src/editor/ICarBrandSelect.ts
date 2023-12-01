@@ -1,6 +1,5 @@
 import {IColumnEditor} from "./IColumnEditor";
 import {ISelectOption} from "./ISelector";
-
 export interface ICarBrandSelect extends IColumnEditor {
     getBrands?: (searchKeyword: string) => Promise<ISelectOption[]>
     getSeries?: (brand: ISelectOption, searchKeyword: string) => Promise<ISelectOption[]>

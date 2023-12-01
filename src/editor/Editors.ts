@@ -7,6 +7,7 @@ import {INumberEditor} from "./INumberEditor";
 import {IImageEditor} from "./IImageEditor";
 import {ICascadeSelector} from "./ICascader";
 import {ICarBrandSelect} from "./ICarBrandSelect";
+import {IBoolSelector} from "./IBoolSelector";
 
 
 /**
@@ -20,17 +21,142 @@ export class Editors {
 
     /**
      * 创建一个文本编辑器
-     * @param allowEmpty 是否允许为空
-     * @param placeholder 编辑器的占位符
+     * @param config
      */
-    static text(allowEmpty = true, placeholder: string | undefined = undefined): ITextEditor {
+    static text(config: ITextEditor): ITextEditor {
         return {
+            ...config,
             type: "text",
-            allowEmpty,
-            placeholder
+            ...{
+                placeholder: config.placeholder ?? `请输入${config.label}`,
+                rules: config?.required ?   [
+                   'required'
+                ]  : [],
+            } as ITextEditor
         }
     }
 
+    /**
+     * 创建一个数字编辑器
+     * @param config 数字编辑器的配置
+     */
+    static number(config: INumberEditor = {}): INumberEditor {
+        return {
+            ...config,
+            type: "number",
+            ...{
+                rules: config?.required ?   [
+                    {
+                        required:true,
+                        validator: (value: any) => {
+                            if (value === undefined || value === null || value === "") {
+                                return false
+                            }
+                            if (config.min !== undefined && config.min !== null && value < config.min) {
+                                return false
+                            }
+                            if (config.max !== undefined && config.max !== null && value > config.max) {
+                                return false
+                            }
+                            return true
+                        },
+                        message: `${config.label}必须是${config.min}到${config.max}${config.msgSuffix ?? '之间的数字'}`
+                    }
+                ]  : [],
+                placeholder: config.placeholder ?? `请输入${config.label}`,
+            } as ITextEditor
+        }
+    }
+
+    /**
+     * 创建一个图片编辑器
+     * @param config
+     */
+    static image(config: IImageEditor = {}): IImageEditor {
+        return {
+            ...config,
+            type: "image",
+            ...({
+                idField: config.idField ?? "id",
+                srcField: config.srcField ?? "src",
+                multiple: config.multiple ?? false,
+                rules: config?.required ?   [
+                    {
+                        required:true,
+                        validator: (value: any[]|undefined,{message}:{message:string}) => {
+
+                            if (value === undefined || value === null || value.length === 0 ) {
+                                return new Error(`最少需要上传一张${config.label}`)
+                            }
+
+                            if(value.length>(config.max??Number.MAX_VALUE)){
+                                return new Error(`最多只能上传${config.max??Number.MAX_VALUE}张${config.label}`)
+                            }
+
+                            return true
+                        }
+                    }
+                ]  : [],
+            } as IImageEditor)
+        }
+    }
+    /**
+     * 创建一个下拉选择器
+     * @param config 选择器的配置
+     */
+    static select(config: ISelector ): ISelector {
+        return {
+            ...config,
+            type: "select",
+            ...{
+                labelField: config.labelField ?? "name",
+                valueField: config.valueField ?? "id",
+                placeholder: config.placeholder ?? `请选择${config.label}`,
+                returnValueType: config.returnValueType ?? SelectorReturnValueType.OPTION,
+                convertValueToOption: config.convertValueToOption ?? ((value: any) => {
+                    return value
+                }),
+                rules: config?.required ?   [
+                    {
+                        required:true,
+                        validator: (value: any|undefined ) => {
+
+                            if (value === undefined || value === null || value.length === 0 ) {
+                                return new Error(`最少需要选择一种${config.label}`)
+                            }
+
+
+                            return true
+                        }
+                    }
+                ]  : [],
+            } as ISelector
+        }
+    }
+
+
+    static bool(config:IBoolSelector  ): ISelector{
+        return   Editors.select({
+            label:config.label, field: config.field,
+            returnValueType:  config.returnValueType?? SelectorReturnValueType.VALUE,
+            convertValueToOption: (value: any) => {
+                return {
+                    id: value,
+                    name: value ? config.trueText ?? "是" : config.falseText ?? "否",
+                }
+            },
+            options: [
+                {
+                    id: true,
+                    name: config.trueText ?? "是"
+                },
+                {
+                    id: false,
+                    name: config.falseText ?? "否"
+                }
+            ]
+        })
+    }
     /**
      * 创建一个日期编辑器
      * @param config 日期编辑器的配置
@@ -48,8 +174,19 @@ export class Editors {
                 formatField: config.formatField ?? "format",
                 valueField: config.valueField ?? "value",
                 localizationStrField: config.localizationStrField ?? "localizationStr",
-                dateType: config.dateType ?? DateType.DATE
-            }
+                dateType: config.dateType ?? DateType.DATE,
+                rules: config?.required ?   [
+                    {
+                        required:true,
+                        validator: (value: any|undefined ) => {
+                            if (value === undefined || value === null || value.length === 0 ) {
+                                return new Error(`${config.label}不能为空`)
+                            }
+                            return true
+                        }
+                    }
+                ]  : []
+            } as IDateEditor
         }
     }
 
@@ -58,7 +195,6 @@ export class Editors {
      * @param config 文本域编辑器的配置
      */
     static textArea(config: ITextAreaEditor = {
-        allowEmpty: true,
         rows: 3,
         width: 300,
         height: 200
@@ -67,7 +203,6 @@ export class Editors {
             ...config,
             type: "text_area",
             ...{
-                allowEmpty: config.allowEmpty ?? true,
                 rows: config.rows ?? 3,
                 width: config.width ?? 300,
                 height: config.height ?? 200
@@ -78,15 +213,14 @@ export class Editors {
     /**
      * 创建一个新的行政区域编辑器
      * @param config 行政区域编辑器的配置
-     * @param placeholder   编辑器的占位符
      */
-    static area(config: IAdministrativeAreaEditor, placeholder: string | undefined = undefined): IAdministrativeAreaEditor {
+    static area(config: IAdministrativeAreaEditor): IAdministrativeAreaEditor {
         return {
             level: 3,
             ...config,
             type: "area",
-            placeholder,
             ...{
+                placeholder: config.placeholder ?? `请选择${config.label??''}`,
                 labelField: config.labelField ?? "name",
                 valueField: config.valueField ?? "id",
                 parentField: config.parentField ?? "parentId",
@@ -95,58 +229,10 @@ export class Editors {
         }
     }
 
-    /**
-     * 创建一个下拉选择器
-     * @param config 选择器的配置
-     * @param placeholder 编辑器的占位符
-     */
-    static select(config: ISelector, placeholder: string | undefined = undefined): ISelector {
-        return {
-            ...config,
-            type: "select",
-            placeholder,
-            ...{
-                labelField: config.labelField ?? "name",
-                valueField: config.valueField ?? "id",
-                returnValueType: config.returnValueType ?? SelectorReturnValueType.OPTION,
-                convertValueToOption: config.convertValueToOption ?? ((value: any) => {
-                    return value
-                })
-            }
-        }
-    }
 
 
-    /**
-     * 创建一个数字编辑器
-     * @param placeholder 编辑器的占位符
-     * @param min 最小值
-     * @param max 最大值
-     */
-    static number(placeholder: string | undefined = undefined, min: number | undefined = undefined, max: number | undefined = undefined): INumberEditor {
-        return {
-            type: "number",
-            min,
-            max,
-            placeholder
-        }
-    }
 
-    /**
-     * 创建一个图片编辑器
-     * @param config
-     */
-    static image(config: IImageEditor = {}): IImageEditor {
-        return {
-            ...config,
-            type: "image",
-            ...({
-                idField: config.idField ?? "id",
-                srcField: config.srcField ?? "src",
-                multiple: config.multiple ?? false
-            } as IImageEditor)
-        }
-    }
+
 
     /**
      * 创建一个级联选择器

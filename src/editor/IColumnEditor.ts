@@ -1,4 +1,5 @@
 import {IStyled} from "../IStyled";
+import {VNode} from "vue";
 
 
 /**
@@ -14,7 +15,23 @@ export interface IColumnEditor extends IStyled {
      */
     type?: ColumnEditorType
 
+
+    label?: string
+    field?: string
+    value?: any
+    required?: boolean
+    component?: VNode
+
+    rules?: (IColumnEditorValidationRule | ColumnEditorValidationRuleType | ((value: any) => boolean))[]
 }
+
+export interface IColumnEditorValidationRule {
+    required?: boolean
+    message: string
+    validator: (value: any, ...args: any[]) => boolean
+}
+
+export type ColumnEditorValidationRuleType = "required"
 
 /**
  * 列编辑器的类型

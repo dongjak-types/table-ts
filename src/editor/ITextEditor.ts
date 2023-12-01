@@ -10,18 +10,10 @@ import {IColumnEditor} from "./IColumnEditor";
  */
 export interface ITextEditor extends IColumnEditor {
 
-    /**
-     * 是否允许为空
-     */
-    allowEmpty?: boolean
+
 
     /**
      * 占位符
      */
     placeholder?: string
-
-    /**
-     * 当值为空时的提示信息
-     */
-    msgOnEmpty?: string
 }
