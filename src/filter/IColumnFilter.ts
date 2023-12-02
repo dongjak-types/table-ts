@@ -1,4 +1,3 @@
-import {VNode} from "vue";
 import {Operator} from "@dongjak-public-types/commons";
 
 
@@ -15,7 +14,7 @@ export interface IColumnFilter {
     type?: ColumnFilterType
 label?:string
     property?:string
-    component?:VNode
+    component?:any
     value?:string
     operator?: Operator
 }

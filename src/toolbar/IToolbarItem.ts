@@ -1,4 +1,3 @@
-import {VNode} from "vue";
 
 export interface IToolbarItem {
     /**
@@ -6,10 +5,10 @@ export interface IToolbarItem {
      */
     type: ToolbarItemType
     componentType?: "button" |   "custom"
-    component?:VNode
+    component?:any
 btnType?:"default"|"tertiary"|"primary"|"info"|"success"|"warning"|"error"
     text?: string
-    icon?:string|VNode
+    icon?:any
     position?:"left"|"right"
     handler?: (...args:any) => void
 }

@@ -1,5 +1,4 @@
 import {IStyled} from "../IStyled";
-import {VNode} from "vue";
 
 
 /**
@@ -20,7 +19,7 @@ export interface IColumnEditor extends IStyled {
     field?: string
     value?: any
     required?: boolean
-    component?: VNode
+    component?: any
 
     rules?: (IColumnEditorValidationRule | ColumnEditorValidationRuleType | ((value: any) => boolean))[]
 }

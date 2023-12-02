@@ -1,5 +1,4 @@
 import {ITable} from "../ITable";
-import {VNode} from "vue";
 
 /**
  * 行动作公共接口
@@ -25,7 +24,7 @@ export interface IRowAction<T> {
     onClick?: (rows: T | T[]) => void
 
 
-    component?: (...args: any[]) => VNode
+    component?: (...args: any[]) => any
     /**
      * 是否显示
      * @param row
