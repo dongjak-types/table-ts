@@ -50,3 +50,4 @@ export type ColumnEditorType =
     | "image"
     | "cascade_select"
     | "car_brand_select"
+|"hidden"

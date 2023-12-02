@@ -33,14 +33,6 @@ export class TextEditorBuilder implements IColumnEditorBuilder<ITextEditor>{
     }
 
 
-    /**
-     * 是否允许为空
-     * @param allowEmpty
-     */
-    allowEmpty(allowEmpty: boolean) {
-        this.config.allowEmpty = allowEmpty
-        return this
-    }
 
     /**
      * 占位符
@@ -51,14 +43,6 @@ export class TextEditorBuilder implements IColumnEditorBuilder<ITextEditor>{
         return this
     }
 
-    /**
-     * 空值提示
-     * @param msgOnEmpty
-     */
-    msgOnEmpty(msgOnEmpty: string) {
-        this.config.msgOnEmpty = msgOnEmpty
-        return this
-    }
 
     /**
      * 构建

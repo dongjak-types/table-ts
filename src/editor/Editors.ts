@@ -8,6 +8,7 @@ import {IImageEditor} from "./IImageEditor";
 import {ICascadeSelector} from "./ICascader";
 import {ICarBrandSelect} from "./ICarBrandSelect";
 import {IBoolSelector} from "./IBoolSelector";
+import {IColumnEditor} from "./IColumnEditor";
 
 
 /**
@@ -18,6 +19,13 @@ import {IBoolSelector} from "./IBoolSelector";
  * @date 2023/10/7
  */
 export class Editors {
+    static hidden(field: string, value: any) {
+        return {
+            field,
+            type:'hidden',
+            value
+        } as IColumnEditor
+    }
 
     /**
      * 创建一个文本编辑器
@@ -29,9 +37,9 @@ export class Editors {
             type: "text",
             ...{
                 placeholder: config.placeholder ?? `请输入${config.label}`,
-                rules: config?.required ?   [
-                   'required'
-                ]  : [],
+                rules: config?.required ? [
+                    'required'
+                ] : [],
             } as ITextEditor
         }
     }
@@ -45,9 +53,9 @@ export class Editors {
             ...config,
             type: "number",
             ...{
-                rules: config?.required ?   [
+                rules: config?.required ? [
                     {
-                        required:true,
+                        required: true,
                         validator: (value: any) => {
                             if (value === undefined || value === null || value === "") {
                                 return false
@@ -62,7 +70,7 @@ export class Editors {
                         },
                         message: `${config.label}必须是${config.min}到${config.max}${config.msgSuffix ?? '之间的数字'}`
                     }
-                ]  : [],
+                ] : [],
                 placeholder: config.placeholder ?? `请输入${config.label}`,
             } as ITextEditor
         }
@@ -80,31 +88,32 @@ export class Editors {
                 idField: config.idField ?? "id",
                 srcField: config.srcField ?? "src",
                 multiple: config.multiple ?? false,
-                rules: config?.required ?   [
+                rules: config?.required ? [
                     {
-                        required:true,
-                        validator: (value: any[]|undefined,{message}:{message:string}) => {
+                        required: true,
+                        validator: (value: any[] | undefined, {message}: { message: string }) => {
 
-                            if (value === undefined || value === null || value.length === 0 ) {
+                            if (value === undefined || value === null || value.length === 0) {
                                 return new Error(`最少需要上传一张${config.label}`)
                             }
 
-                            if(value.length>(config.max??Number.MAX_VALUE)){
-                                return new Error(`最多只能上传${config.max??Number.MAX_VALUE}张${config.label}`)
+                            if (value.length > (config.max ?? Number.MAX_VALUE)) {
+                                return new Error(`最多只能上传${config.max ?? Number.MAX_VALUE}张${config.label}`)
                             }
 
                             return true
                         }
                     }
-                ]  : [],
+                ] : [],
             } as IImageEditor)
         }
     }
+
     /**
      * 创建一个下拉选择器
      * @param config 选择器的配置
      */
-    static select(config: ISelector ): ISelector {
+    static select(config: ISelector): ISelector {
         return {
             ...config,
             type: "select",
@@ -116,12 +125,12 @@ export class Editors {
                 convertValueToOption: config.convertValueToOption ?? ((value: any) => {
                     return value
                 }),
-                rules: config?.required ?   [
+                rules: config?.required ? [
                     {
-                        required:true,
-                        validator: (value: any|undefined ) => {
+                        required: true,
+                        validator: (value: any | undefined) => {
 
-                            if (value === undefined || value === null || value.length === 0 ) {
+                            if (value === undefined || value === null || value.length === 0) {
                                 return new Error(`最少需要选择一种${config.label}`)
                             }
 
@@ -129,16 +138,16 @@ export class Editors {
                             return true
                         }
                     }
-                ]  : [],
+                ] : [],
             } as ISelector
         }
     }
 
 
-    static bool(config:IBoolSelector  ): ISelector{
-        return   Editors.select({
-            label:config.label, field: config.field,
-            returnValueType:  config.returnValueType?? SelectorReturnValueType.VALUE,
+    static bool(config: IBoolSelector): ISelector {
+        return Editors.select({
+            label: config.label, field: config.field,
+            returnValueType: config.returnValueType ?? SelectorReturnValueType.VALUE,
             convertValueToOption: (value: any) => {
                 return {
                     id: value,
@@ -154,9 +163,11 @@ export class Editors {
                     id: false,
                     name: config.falseText ?? "否"
                 }
-            ]
+            ],
+            value: config.value
         })
     }
+
     /**
      * 创建一个日期编辑器
      * @param config 日期编辑器的配置
@@ -175,17 +186,17 @@ export class Editors {
                 valueField: config.valueField ?? "value",
                 localizationStrField: config.localizationStrField ?? "localizationStr",
                 dateType: config.dateType ?? DateType.DATE,
-                rules: config?.required ?   [
+                rules: config?.required ? [
                     {
-                        required:true,
-                        validator: (value: any|undefined ) => {
-                            if (value === undefined || value === null || value.length === 0 ) {
+                        required: true,
+                        validator: (value: any | undefined) => {
+                            if (value === undefined || value === null || value.length === 0) {
                                 return new Error(`${config.label}不能为空`)
                             }
                             return true
                         }
                     }
-                ]  : []
+                ] : []
             } as IDateEditor
         }
     }
@@ -220,7 +231,7 @@ export class Editors {
             ...config,
             type: "area",
             ...{
-                placeholder: config.placeholder ?? `请选择${config.label??''}`,
+                placeholder: config.placeholder ?? `请选择${config.label ?? ''}`,
                 labelField: config.labelField ?? "name",
                 valueField: config.valueField ?? "id",
                 parentField: config.parentField ?? "parentId",
@@ -228,10 +239,6 @@ export class Editors {
             }
         }
     }
-
-
-
-
 
 
     /**
