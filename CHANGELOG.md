@@ -1,3 +1,18 @@
+# [3.4.0](https://github.com/dongjak-types/table-ts/compare/v3.3.0...v3.4.0) (2023-12-02)
+
+
+### Features
+
+* 112 ([bdaa10e](https://github.com/dongjak-types/table-ts/commit/bdaa10e449d2d0d7f1b5c7d6546520e343ee8ca1))
+* 支持配置行动作和车辆下架功能 ([7fc9f7f](https://github.com/dongjak-types/table-ts/commit/7fc9f7f24192c2fe3717f8df567c147a8686b72f))
+* 新增正则工具类 ([fd10b22](https://github.com/dongjak-types/table-ts/commit/fd10b227bf25eaeabd40daceee78a257c5681693))
+* 新增正则工具类 ([ab4ad45](https://github.com/dongjak-types/table-ts/commit/ab4ad455d9260cf786f5061709ed1b15c61ca265))
+* **表格工具条:** 列可见性配置工具按钮 ([d965fad](https://github.com/dongjak-types/table-ts/commit/d965fad57953520efba9f0d855e20457243a2c9b))
+* **表格过滤器:** 文本和枚举类型的过滤器 ([be912e5](https://github.com/dongjak-types/table-ts/commit/be912e5b894dfd208b67bc83b021efded92bad4b))
+* 车辆新增 ([f72a719](https://github.com/dongjak-types/table-ts/commit/f72a719220e61c65074dfe02e221e6cc563b00f5))
+* 车辆编辑 ([4d5158e](https://github.com/dongjak-types/table-ts/commit/4d5158ec07181a01f2785f13969dc5e6a798e105))
+* 车辆编辑 ([d3e94eb](https://github.com/dongjak-types/table-ts/commit/d3e94ebc3d0c4cbb7f7a78dabc64123fdc7e1ba5))
+
 # [3.3.0](https://github.com/dongjak-types/table-ts/compare/v3.2.0...v3.3.0) (2023-11-27)
 
 
