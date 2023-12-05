@@ -1,6 +1,6 @@
 {
   "name": "@dongjak-public-types/table",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "description": "数据表格公共类型定义",
   "publishConfig": {
     "access": "public"
@@ -31,5 +31,16 @@
   },
   "dependencies": {
     "@dongjak-public-types/commons": "^3.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "typings": "./dist/table-ts.d.ts",
+  "module": "./dist/table-ts.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/table-ts.d.ts",
+      "import": "./dist/table-ts.es.js"
+    }
   }
 }

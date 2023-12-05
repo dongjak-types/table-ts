@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/dongjak-types/table-ts/compare/v3.5.0...v3.6.0) (2023-12-05)
+
+
+### Features
+
+* 优化依赖项 ([e856962](https://github.com/dongjak-types/table-ts/commit/e856962f8b442ff5c8d69b065ab88c71a154ffda))
+
 # [3.5.0](https://github.com/dongjak-types/table-ts/compare/v3.4.0...v3.5.0) (2023-12-02)
 
 
