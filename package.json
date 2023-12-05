@@ -1,6 +1,6 @@
 {
   "name": "@dongjak-public-types/table",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "description": "数据表格公共类型定义",
   "publishConfig": {
     "access": "public"

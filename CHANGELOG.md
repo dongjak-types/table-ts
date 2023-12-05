@@ -1,3 +1,11 @@
+# [3.5.0](https://github.com/dongjak-types/table-ts/compare/v3.4.0...v3.5.0) (2023-12-02)
+
+
+### Features
+
+* 112 ([62f0806](https://github.com/dongjak-types/table-ts/commit/62f08061111d209bbdbdbcacb7f30ed69dc16926))
+* 112 ([8037f14](https://github.com/dongjak-types/table-ts/commit/8037f141a97093e71d93d7d418c281816fd98f39))
+
 # [3.4.0](https://github.com/dongjak-types/table-ts/compare/v3.3.0...v3.4.0) (2023-12-02)
 
 
